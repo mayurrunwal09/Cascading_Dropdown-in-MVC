@@ -1,0 +1,24 @@
+﻿@model WebApplication1.Models.Employee
+
+<div class="container mt-3">
+    <h2>Employee Details</h2>
+
+    @if (Model != null)
+    {
+        <div>
+            <h3><strong>Employee ID:</strong> @Model.Emp_Id</h3>
+            <p><strong>Name:</strong> @Model.Emp_Name</p>
+            <p><strong>Address:</strong> @Model.Emp_Adress</p>
+            <p><strong>Mobile Number:</strong> @Model.mobno</p>
+            <p><strong>Salary:</strong> @Model.Sallary</p>
+            <p><strong>Age:</strong> @Model.age</p>
+            <p><strong>Department:</strong> @Model.department.Department_Name</p>
+            <p><strong>State:</strong> @Model.State.StateName</p>
+            <p><strong>City:</strong> @Model.City.CityName</p>
+        </div>
+    }
+    else
+    {
+        <p>No employee found with the provided name.</p>
+    }
+</div>

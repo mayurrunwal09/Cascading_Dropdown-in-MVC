@@ -1,0 +1,42 @@
+﻿@model   IEnumerable<Demo.Models.Employee>
+
+@if (!Model.Any())
+{
+    <p>Country not found or no employees in this country.</p>
+}
+
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>EmpName</th>
+                <th>Mobno</th>
+                <th>Salary</th>
+                <th>Gender</th>
+                <th>DepName</th>
+                <th>StateName</th>
+                <th>CityName</th>
+
+
+                <!-- Add more table headers as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.EmpName</td>
+                    <td>@employee.Mobno</td>
+                    <td>@employee.Salary</td>
+                    <td>@employee.Gender</td>
+                    <td>@employee.Department.DepName</td>
+                      <td>@employee.State.StateName</td>
+                    <td>@employee.City.CityName</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebApplication1.Models.Department>
+
+<h2> Department</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(i=> i.Dept_Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(i=> i.Department_Name)
+            </th>
+
+            <th>
+                <a onclick="showInPopup('@Url.Action("AddOrEdit","Department",null,Context.Request.Scheme)','New Department')" class="btn btn-success"><i class="fas fa-random"></i>Add Department</a>
+            </th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelitem => item.Dept_Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelitem => item.Department_Name)
+                </td>
+                <td>
+                    <div>
+                        <a onclick="showInPopup('@Url.Action("AddOrEdit","Department",new{id = item.Dept_Id },Context.Request.Scheme)','Edit Dept')" class="btn btn-info"><i class="fas fa-pencil-alt"></i>Edit Department</a>
+                        <form asp-action="Delete" asp-route-id="@item.Dept_Id" onsubmit="return jQueryAjaxDelete(this)" class="d-inline">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

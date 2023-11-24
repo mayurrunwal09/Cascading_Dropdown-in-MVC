@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebApplication1.Models.Employee>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll", Model)
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<div id="search-form">
+    <form asp-action="GetDetailByID" method="get">
+        <div class="form-group">
+            <label for="empId">Enter Employee ID:</label>
+            <input type="text" class="form-control" id="empId" name="empId" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+
+
+<div id="search-form">
+    <form asp-action="GetDetailByName" method="get">
+        <div class="form-group">
+            <label for="empName">Enter Employee Name: </label>
+            <input type="text" class="form-control" id="empName" name="empName" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+<div id="search-form">
+    <form asp-action="GetEmpByCityName" method="get">
+        <div class="form-group">
+            <label for="cityName">Enter City Name:</label>
+            <input type="text" class="form-control" id="cityName" name="cityName" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+                                                                                                                                                                                                                                                                                        
